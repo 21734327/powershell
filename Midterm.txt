@@ -1,0 +1,40 @@
+$PhysicalRAM = (Get-WMIObject -class Win32_PhysicalMemory -ComputerName $Computer | Measure-Object -Property capacity -Sum | % {[Math]::Round(($_.sum / 1GB),2)})
+ram called to $physicalram
+
+
+
+
+
+
+
+(get-wmiobject win32_operatingsystem -computername $_).name 
+0ssystemname
+
+
+
+(get-wmiobject win32_operatingsystem -computername $_).csname 
+machine name
+
+
+(get-wmiobject win32_operatingsystem -computername $_).version
+version of os
+
+
+(get-wmiobject win32_processor -computername $_).name
+name of processor
+
+(get-wmiobject win32_processor -computername $_).manufacturer
+manfacturer of processor 
+
+(get-wmiobject win32_processor -computername $_).numberofcores
+number of cores
+
+(get-wmiobject win32_physicalmemory -computername $_).totalwidth
+
+
+
+get-windowsfeature -computername $_ | where-object {$_.installed -eq $true} | select-object -expandproperty name
+getting insalled features
+
+
+"remote desktop is" 
