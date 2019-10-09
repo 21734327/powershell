@@ -38,7 +38,7 @@ if ($opsys.producttype -eq 1) {
   $loglevels = 1,2
   foreach ($log in $logs) {
     foreach ($level in $loglevels) {
-      Get-WinEvent -FilterHashtable @{Logname="$log";Level="$level"} -maxevents 5
+      Get-WinEvent -FilterHashtable @{Logname="$log";Level="$level"} -maxevents 5 | ft -autosize | out-file $outfile -append
     }
   }
   #write out last 5 warnings and errors from system log
