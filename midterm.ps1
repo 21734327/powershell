@@ -33,7 +33,8 @@ if ($opsys.producttype -eq 1) {
 
   
   #write out whether remote desktop is enabled
-  Get-ItemPropertyvalue -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name 'fDenyTSConnections'
+Get-ItemPropertyvalue -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name 'fDenyTSConnections'
+Get-ItemPropertyvalue -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\winstations\rdp-tcp' -name 'userauthentication'
   
   
   #write out last 5 warnings and errors from system log
