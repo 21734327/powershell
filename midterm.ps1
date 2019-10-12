@@ -27,7 +27,7 @@ if ($opsys.producttype -eq 1) {
   '/*** Roles and Features are not available on a workstation ***/' | out-file $outfile -append
 } else {
   '/*** Installed Roles and Features ***/' | out-file $outfile -append
-  get-windowsfeature | where installed | ft -autosize | out-file $outfile -append
+  get-windowsfeature | where installed | ft  | out-file $outfile -append
 }
 
 
@@ -39,7 +39,7 @@ Get-ItemPropertyvalue -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Ser
   
   #write out last 5 warnings and errors from system log
   #write out last 5 warnings and errors from application log
-  Get-WinEvent -FilterHashtable @{Logname="$log";Level="$level"} -maxevents 5 | ft -autosize | out-file $outfile -append
+  Get-WinEvent -FilterHashtable @{Logname="$log";Level="$level"} -maxevents 5 | ft  | out-file $outfile -append
     
   
   
