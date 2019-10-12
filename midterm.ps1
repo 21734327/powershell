@@ -32,7 +32,8 @@ if ($opsys.producttype -eq 1) {
 
 
   
-  #write out whether remote desktp is enabled
+  #write out whether remote desktop is enabled
+  Get-ItemPropertyvalue -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name 'fDenyTSConnections'
   
   $logs = System,Application
   $loglevels = 1,2
