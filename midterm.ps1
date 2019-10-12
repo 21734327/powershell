@@ -35,13 +35,10 @@ if ($opsys.producttype -eq 1) {
   #write out whether remote desktop is enabled
   Get-ItemPropertyvalue -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name 'fDenyTSConnections'
   
-  $logs = System,Application
-  $loglevels = 1,2
-  foreach ($log in $logs) {
-    foreach ($level in $loglevels) {
-      Get-WinEvent -FilterHashtable @{Logname="$log";Level="$level"} -maxevents 5 | ft -autosize | out-file $outfile -append
-    }
-  }
+  
   #write out last 5 warnings and errors from system log
   #write out last 5 warnings and errors from application log
-}
+  Get-WinEvent -FilterHashtable @{Logname="$log";Level="$level"} -maxevents 5 | ft -autosize | out-file $outfile -append
+    
+  
+  
