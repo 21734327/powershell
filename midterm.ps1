@@ -39,7 +39,7 @@ Get-ItemPropertyvalue -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Ser
   
   #write out last 5 warnings and errors from system log
   #write out last 5 warnings and errors from application log
-  Get-WinEvent -FilterHashtable @{Logname='System;Level=2} -maxevents 5 | ft  | out-file $outfile -append
+  Get-WinEvent -FilterHashtable @{Logname='System';Level=2} -maxevents 5 | ft  | out-file $outfile -append
   Get-WinEvent -FilterHashtable @{Logname='System';Level=3} -maxevents 5 | ft  | out-file $outfile -append
   Get-WinEvent -FilterHashtable @{Logname='Application';Level=2} -maxevents 5 | ft  | out-file $outfile -append
   Get-WinEvent -FilterHashtable @{Logname='Application';Level=3} -maxevents 5 | ft  | out-file $outfile -append
